@@ -62,6 +62,24 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PortalLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bfe1ec6-aca8-4283-acd4-21ea42087916"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PortalRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3b38b29-48fc-4e7a-9448-fce77fd1fe35"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +170,28 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""321c7eb4-bdca-4630-9854-410ecc0f77af"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PortalLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc2d6437-4a9c-45ba-a19f-653a3c0e6087"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PortalRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +204,8 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_PortalLeft = m_Player.FindAction("PortalLeft", throwIfNotFound: true);
+        m_Player_PortalRight = m_Player.FindAction("PortalRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +271,8 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_PortalLeft;
+    private readonly InputAction m_Player_PortalRight;
     public struct PlayerActions
     {
         private @PInputActions m_Wrapper;
@@ -237,6 +281,8 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @PortalLeft => m_Wrapper.m_Player_PortalLeft;
+        public InputAction @PortalRight => m_Wrapper.m_Player_PortalRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +304,12 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @PortalLeft.started += instance.OnPortalLeft;
+            @PortalLeft.performed += instance.OnPortalLeft;
+            @PortalLeft.canceled += instance.OnPortalLeft;
+            @PortalRight.started += instance.OnPortalRight;
+            @PortalRight.performed += instance.OnPortalRight;
+            @PortalRight.canceled += instance.OnPortalRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +326,12 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @PortalLeft.started -= instance.OnPortalLeft;
+            @PortalLeft.performed -= instance.OnPortalLeft;
+            @PortalLeft.canceled -= instance.OnPortalLeft;
+            @PortalRight.started -= instance.OnPortalRight;
+            @PortalRight.performed -= instance.OnPortalRight;
+            @PortalRight.canceled -= instance.OnPortalRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +355,7 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnPortalLeft(InputAction.CallbackContext context);
+        void OnPortalRight(InputAction.CallbackContext context);
     }
 }
