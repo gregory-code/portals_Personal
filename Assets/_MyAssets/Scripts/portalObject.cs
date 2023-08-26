@@ -42,7 +42,7 @@ public class portalObject : MonoBehaviour
             return;
         }
 
-        if (cloneObject.activeSelf && inPortal.bPlaced && outPortal.bPlaced)
+        if (cloneObject.activeSelf == true && inPortal.bPlaced && outPortal.bPlaced)
         {
             var inTransform = inPortal.transform;
             var outTransform = outPortal.transform;
@@ -70,7 +70,7 @@ public class portalObject : MonoBehaviour
 
         Physics.IgnoreCollision(collider, wallCollider);
 
-        cloneObject.SetActive(false);
+        cloneObject.SetActive(true);
 
         ++inPortalCount;
     }
@@ -88,8 +88,8 @@ public class portalObject : MonoBehaviour
 
     public virtual void Warp()
     {
-        var inTransform = inPortal.transform;
-        var outTransform = outPortal.transform;
+        Transform inTransform = inPortal.transform;
+        Transform outTransform = outPortal.transform;
 
         // Update position of object.
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);

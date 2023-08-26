@@ -1,59 +1,94 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using RenderPipeline = UnityEngine.Rendering.RenderPipelineManager;
 
 [RequireComponent(typeof(BoxCollider))]
 public class Portal : MonoBehaviour
 {
-    [field: SerializeField]
-    public Portal OtherPortal { get; private set; }
+    [SerializeField] private LayerMask placementMask;
+    public Portal OtherPortal;
+    public Transform placement;
+    public bool bPlaced = false;
+    public float hugFactor = 0.5f;
 
-    [SerializeField]
-    private Renderer outlineRenderer;
+    public Camera portalCam;
+    public Camera otherPortalCam;
+    private Camera playerCam;
 
-    [field: SerializeField]
-    public Color PortalColour { get; private set; }
+    public Material portalMat;
 
-    [SerializeField]
-    private LayerMask placementMask;
-
-    [SerializeField]
-    private Transform testTransform;
+    public float xCamOffset;
+    public float yCamOffset;
+    public float zCamOffset;
 
     private List<portalObject> portalObjects = new List<portalObject>();
-    public bool bPlaced { get; private set; } = false;
-
     private Collider wallCollider;
 
     //Components attached to the portal
-    public Renderer Renderer { get; private set; }
     private new BoxCollider collider;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider>();
-        Renderer = GetComponent<Renderer>();
     }
 
     private void Start()
     {
-        outlineRenderer.material.SetColor("_OutlineColour", PortalColour);
         gameObject.SetActive(false);
+        
+        playerCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        if(otherPortalCam.targetTexture != null)
+        {
+            otherPortalCam.targetTexture.Release();
+        }
+
+        otherPortalCam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
+        portalMat.mainTexture = otherPortalCam.targetTexture;
     }
 
     private void Update()
     {
-        Renderer.enabled = OtherPortal.bPlaced;
+        if (!bPlaced || !OtherPortal.bPlaced) return;
 
-        for(int i = 0; i < portalObjects.Count; ++i)
+        for (int i = 0; i < portalObjects.Count; ++i)
         {
-            Vector3 objPos = transform.InverseTransformPoint(portalObjects[i].transform.position);
+            Vector3 portalObj = transform.InverseTransformPoint(portalObjects[i].transform.position);
 
-            if(objPos.z > 0)
+            Debug.Log("Portal Object Z is: " + portalObj.z);
+
+            if(portalObj.z > 0)
             {
                 portalObjects[i].Warp();
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        //movePortalCam();
+        rotPortalCam();
+    }
+
+    private void movePortalCam()
+    {
+        Vector3 playerOffset = playerCam.transform.position - OtherPortal.transform.position;
+
+        // Transform the player offset to be relative to the portal's local space
+        Vector3 portalSpaceOffset = placement.InverseTransformDirection(playerOffset);
+
+        portalCam.transform.position = placement.position + portalSpaceOffset;
+    }
+
+    private void rotPortalCam()
+    {
+        Transform pc = playerCam.transform;
+        portalCam.transform.localRotation = Quaternion.Euler(-pc.localRotation.eulerAngles.x, pc.localRotation.eulerAngles.y, pc.localRotation.eulerAngles.z);
+        portalCam.transform.Rotate(xCamOffset, yCamOffset, zCamOffset);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,6 +96,7 @@ public class Portal : MonoBehaviour
         var obj = other.GetComponent<portalObject>();
         if(obj != null)
         {
+            Debug.Log("Object went in");
             portalObjects.Add(obj);
             obj.SetIsInPortal(this, OtherPortal, wallCollider);
         }
@@ -73,6 +109,7 @@ public class Portal : MonoBehaviour
 
         if (portalObjects.Contains(obj))
         {
+            Debug.Log("Object went out");
             portalObjects.Remove(obj);
             obj.ExitPortal(wallCollider);
         }
@@ -80,138 +117,54 @@ public class Portal : MonoBehaviour
 
     public bool PlacePortal(Collider wallCollider, Vector3 pos, Quaternion rot)
     {
-        testTransform.position = pos;
-        testTransform.rotation = rot;
-        testTransform.position -= testTransform.forward * 0.001f;
+        placement.position = pos;
+        placement.rotation = rot;
+        placement.position -= placement.forward * 0.001f;
 
-        FixOverhangs();
-        FixIntersects();
+        HugCorners();
+        this.wallCollider = wallCollider;
 
-        Debug.Log(CheckOverlap());
+        //ResetPortalCam();
 
-        if (!CheckOverlap())
-        {
-            this.wallCollider = wallCollider;
-            transform.position = testTransform.position;
-            transform.rotation = testTransform.rotation;
+        transform.position = placement.position;
+        transform.rotation = placement.rotation;
 
-            Debug.Log("Placed portal set to true");
-            gameObject.SetActive(true);
-            bPlaced = true;
-            return true;
-        }
+        transform.Rotate(-90f, 0f, 0f); //fixes final rotate
 
-        return false;
+        Debug.Log("Placed portal set to true");
+        gameObject.SetActive(true);
+        bPlaced = true;
+        return true;
     }
 
     // Ensure the portal cannot extend past the edge of a surface.
-    private void FixOverhangs()
+    private void HugCorners()
     {
         var testPoints = new List<Vector3>
         {
             new Vector3(-1.1f,  0.0f, 0.1f),
             new Vector3( 1.1f,  0.0f, 0.1f),
             new Vector3( 0.0f, -2.1f, 0.1f),
-            new Vector3( 0.0f,  2.1f, 0.1f)
+            new Vector3( 0.0f,  2.1f, 0.1f) 
         };
 
-        var testDirs = new List<Vector3>
-        {
-             Vector3.right,
-            -Vector3.right,
-             Vector3.up,
-            -Vector3.up
-        };
+        var testDirs = new List<Vector3> { Vector3.right, -Vector3.right, Vector3.up, -Vector3.up };
+
+        Vector3 portalPosition = placement.position;
+        Quaternion portalRotation = placement.rotation;
 
         for (int i = 0; i < 4; ++i)
         {
             RaycastHit hit;
-            Vector3 raycastPos = testTransform.TransformPoint(testPoints[i]);
-            Vector3 raycastDir = testTransform.TransformDirection(testDirs[i]);
+            Vector3 raycastPos = portalPosition + portalRotation * testPoints[i];
+            Vector3 raycastDir = portalRotation * testDirs[i];
 
-            if (Physics.CheckSphere(raycastPos, 0.05f, placementMask))
+            if (Physics.Raycast(raycastPos, raycastDir, out hit, 2.1f, placementMask))
             {
-                break;
-            }
-            else if (Physics.Raycast(raycastPos, raycastDir, out hit, 2.1f, placementMask))
-            {
-                var offset = hit.point - raycastPos;
-                testTransform.Translate(offset, Space.World);
+                var offset = (hit.point - raycastPos) * hugFactor;
+                placement.Translate(offset, Space.World);
             }
         }
-    }
-
-    // Ensure the portal cannot intersect a section of wall.
-    private void FixIntersects()
-    {
-        var testDirs = new List<Vector3>
-        {
-             Vector3.right,
-            -Vector3.right,
-             Vector3.up,
-            -Vector3.up
-        };
-
-        var testDists = new List<float> { 1.1f, 1.1f, 2.1f, 2.1f };
-
-        for (int i = 0; i < 4; ++i)
-        {
-            RaycastHit hit;
-            Vector3 raycastPos = testTransform.TransformPoint(0.0f, 0.0f, -0.1f);
-            Vector3 raycastDir = testTransform.TransformDirection(testDirs[i]);
-
-            if (Physics.Raycast(raycastPos, raycastDir, out hit, testDists[i], placementMask))
-            {
-                var offset = (hit.point - raycastPos);
-                var newOffset = -raycastDir * (testDists[i] - offset.magnitude);
-                testTransform.Translate(newOffset, Space.World);
-            }
-        }
-    }
-
-    // Once positioning has taken place, ensure the portal isn't intersecting anything.
-    private bool CheckOverlap()
-    {
-        var checkExtents = new Vector3(0.9f, 1.9f, 0.05f);
-
-        var checkPositions = new Vector3[]
-        {
-            testTransform.position + testTransform.TransformVector(new Vector3( 0.0f,  0.0f, -0.1f)),
-
-            testTransform.position + testTransform.TransformVector(new Vector3(-1.0f, -2.0f, -0.1f)),
-            testTransform.position + testTransform.TransformVector(new Vector3(-1.0f,  2.0f, -0.1f)),
-            testTransform.position + testTransform.TransformVector(new Vector3( 1.0f, -2.0f, -0.1f)),
-            testTransform.position + testTransform.TransformVector(new Vector3( 1.0f,  2.0f, -0.1f)),
-
-            testTransform.TransformVector(new Vector3(0.0f, 0.0f, 0.2f))
-        };
-
-        // Ensure the portal does not intersect walls.
-        var intersections = Physics.OverlapBox(checkPositions[0], checkExtents, testTransform.rotation, placementMask);
-
-        if (intersections.Length > 1)
-        {
-            return false;
-        }
-        else if (intersections.Length == 1)
-        {
-            // We are allowed to intersect the old portal position.
-            if (intersections[0] != collider)
-            {
-                return false;
-            }
-        }
-
-        // Ensure the portal corners overlap a surface.
-        bool isOverlapping = true;
-
-        for (int i = 1; i < checkPositions.Length - 1; ++i)
-        {
-            isOverlapping &= Physics.Linecast(checkPositions[i],
-                checkPositions[i] + checkPositions[checkPositions.Length - 1], placementMask);
-        }
-
-        return isOverlapping;
     }
 
     public void RemovePortal()
