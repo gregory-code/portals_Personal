@@ -22,9 +22,8 @@ public class PlayerControls : MonoBehaviour
 
     [Header("Camera")]
     public Camera playerCam;
-    float xRotation = 0f;
-    public float xSensitivity = 30f;
-    public float ySensitivity = 30f;
+    public float cameraSpeed = 3.0f;
+    public Quaternion TargetRotation { private set; get; }
 
     [Header("Player Jump")]
     [SerializeField] private float gravity = -5;
@@ -91,14 +90,28 @@ public class PlayerControls : MonoBehaviour
 
     public void Look()
     {
-        Vector2 lookVector = pInputActions.Player.Look.ReadValue<Vector2>();
+        /*Vector2 lookVector = pInputActions.Player.Look.ReadValue<Vector2>();
 
         xRotation -= (lookVector.y * Time.deltaTime) * ySensitivity;
         xRotation = Mathf.Clamp(xRotation, -75, 75);
 
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.Rotate(Vector3.up * (lookVector.x * Time.deltaTime) * xSensitivity);
+        transform.Rotate(Vector3.up * (lookVector.x * Time.deltaTime) * xSensitivity);*/ // using new input system
 
+        // Rotate the camera.
+        var rotation = new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+        var targetEuler = TargetRotation.eulerAngles + (Vector3)rotation * cameraSpeed;
+        if (targetEuler.x > 180.0f)
+        {
+            targetEuler.x -= 360.0f;
+        }
+        targetEuler.x = Mathf.Clamp(targetEuler.x, -75.0f, 75.0f);
+        TargetRotation = Quaternion.Euler(targetEuler);
+
+        //playerCam.transform.localRotation = Quaternion.Euler(targetEuler.x, 0, 0); // idea for a new way to rotate the camera
+        //transform.rotation = Quaternion.Euler(0, targetEuler.y, 0);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, Time.deltaTime * 15.0f);
     }
 
     public void Jump(InputAction.CallbackContext context)

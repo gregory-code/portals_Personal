@@ -1,4 +1,4 @@
-Shader"Portals/ScreenCutShader"
+Shader"Portals/ScreenPortalShader"
 {
     Properties
     {
