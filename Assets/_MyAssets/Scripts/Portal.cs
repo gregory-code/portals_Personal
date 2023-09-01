@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.XR;
+using static UnityEngine.ParticleSystem;
 using RenderPipeline = UnityEngine.Rendering.RenderPipelineManager;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -22,16 +24,28 @@ public class Portal : MonoBehaviour
 
     private new BoxCollider collider;
 
+    private ParticleSystem cloudParticles;
+    private Transform pulseEffect;
+
+    private PlayerControls PC;
+    private Animator portalAnim_Controller;
+
     public Renderer Renderer { get; private set; }
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider>();
         Renderer = GetComponent<Renderer>();
+        portalAnim_Controller = GetComponent<Animator>();
+
+        cloudParticles = transform.Find("Smoke").GetComponent<ParticleSystem>();
+        pulseEffect = transform.Find("pulse").GetComponent<Transform>();
     }
 
     private void Start()
     {
+        PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>();
+        portalAnim_Controller.SetTrigger("Place");
         gameObject.SetActive(false);
     }
 
@@ -41,43 +55,73 @@ public class Portal : MonoBehaviour
 
         if (!bPlaced || !OtherPortal.bPlaced) return;
 
+        ItemTeleport();
+        IsViewable();
+        PlayerTeleport();
+    }
+
+    private void IsViewable()
+    {
+        // Check if Portal A is in view
+        Vector3 viewportPosA = Camera.main.WorldToViewportPoint(transform.position);
+        bool isPortalAInView = viewportPosA.x >= 0 && viewportPosA.x <= 1 && viewportPosA.y >= 0 && viewportPosA.y <= 1 && viewportPosA.z > 0;
+
+        // Check if Portal B is in view
+        Vector3 viewportPosB = Camera.main.WorldToViewportPoint(OtherPortal.transform.position);
+        bool isPortalBInView = viewportPosB.x >= 0 && viewportPosB.x <= 1 && viewportPosB.y >= 0 && viewportPosB.y <= 1 && viewportPosB.z > 0;
+
+        if (isPortalAInView && !isPortalBInView) // my portal is visable, other is not
+        {
+            pulseEffect.transform.localPosition = new Vector3(0, 0, -0.001f); //pushes pulse back so it cannot be seen through portal
+            
+            return;
+        }
+        else if (!isPortalAInView && isPortalBInView) // other portal is visable, mine is not
+        {
+            pulseEffect.transform.localPosition = new Vector3(0, 0, 0.001f); //pushes pulse forward so it's seen
+
+            return;
+        }
+    }
+
+    private void ItemTeleport()
+    {
         for (int i = 0; i < portalObjects.Count; ++i)
         {
             Vector3 portalObj = transform.InverseTransformPoint(portalObjects[i].transform.position);
 
-            Debug.Log("Portal Object Z is: " + portalObj.z);
-
-            if(portalObj.z > 0)
+            if (portalObj.z > 0)
             {
-                portalObjects[i].Warp();
+                portalObjects[i].Teleport();
             }
         }
+    }
 
-        if(bPlayerTele)
+    private void PlayerTeleport()
+    {
+        if (!bPlayerTele) return;
+
+        PortalController playerCon = GameObject.FindGameObjectWithTag("Player").GetComponent<PortalController>();
+
+        Vector3 player = transform.InverseTransformPoint(playerCon.transform.position);
+
+        if (player.z > -0.5)
         {
-            PortalController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PortalController>();
-
-            Vector3 playerObj = transform.InverseTransformPoint(player.transform.position);
-
-            Debug.Log("Portal Object Z is: " + playerObj.z);
-
-            if (playerObj.z > 0)
-            {
-                player.GetComponent<PortalController>().Warp();
-            }
+            bPlayerTele = false;
+            playerCon.GetComponent<PortalController>().Teleport();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Something touch portal");
-        /*if (other.tag == "Player")
+
+        if (other.tag == "Player")
         {
             PortalController PC = other.GetComponent<PortalController>();
             Debug.Log("Player went in");
             bPlayerTele = true;
             PC.SetIsInPortal(this, OtherPortal, wallCollider);
-        }*/
+        }
 
         var obj = other.GetComponent<portalObject>();
         if(obj != null)
@@ -91,14 +135,13 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Something touch portal");
-        /*if (other.tag == "Player")
+        if (other.tag == "Player")
         {
             PortalController PC = other.GetComponent<PortalController>();
             Debug.Log("Player went out");
             bPlayerTele = false;
             PC.ExitPortal(wallCollider);
-        }*/
+        }
 
         var obj = other.GetComponent<portalObject>();
 
@@ -108,6 +151,12 @@ public class Portal : MonoBehaviour
             portalObjects.Remove(obj);
             obj.ExitPortal(wallCollider);
         }
+    }
+
+    public void disapateSmoke()
+    {
+        ParticleSystem.MainModule cloud = cloudParticles.main;
+        cloud.startSize = new ParticleSystem.MinMaxCurve(min: 0f, max: 0f);
     }
 
     public bool PlacePortal(Collider wallCollider, Vector3 pos, Quaternion rot)
@@ -129,6 +178,13 @@ public class Portal : MonoBehaviour
 
             gameObject.SetActive(true);
             bPlaced = true;
+
+            ParticleSystem.MainModule cloud = cloudParticles.main;
+            cloud.startSize = new ParticleSystem.MinMaxCurve(min: 0.1f, max: 0.5f);
+            portalAnim_Controller.speed = (PC.currentSpeed / 4);
+            portalAnim_Controller.ResetTrigger("Place");
+            portalAnim_Controller.SetTrigger("Place");
+
             return true;
         }
 

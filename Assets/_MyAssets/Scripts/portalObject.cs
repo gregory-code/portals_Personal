@@ -86,8 +86,9 @@ public class portalObject : MonoBehaviour
         }
     }
 
-    public virtual void Warp()
+    public virtual void Teleport()
     {
+
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
 

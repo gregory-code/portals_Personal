@@ -8,7 +8,7 @@ using static UnityEditor.SceneView;
 public class PlayerControls : MonoBehaviour
 {
     public PInputActions pInputActions;
-    private CharacterController CC;
+    public CharacterController CC;
     private PortalController PC;
 
     [Header("Movement")]
@@ -23,7 +23,7 @@ public class PlayerControls : MonoBehaviour
     [Header("Camera")]
     public Camera playerCam;
     public float cameraSpeed = 3.0f;
-    public Quaternion TargetRotation { private set; get; }
+    public Quaternion TargetRotation;
 
     [Header("Player Jump")]
     [SerializeField] private float gravity = -5;
@@ -37,6 +37,7 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
+
         pInputActions = new PInputActions();
         pInputActions.Player.Enable();
         
@@ -100,6 +101,7 @@ public class PlayerControls : MonoBehaviour
 
         // Rotate the camera.
         var rotation = new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+
         var targetEuler = TargetRotation.eulerAngles + (Vector3)rotation * cameraSpeed;
         if (targetEuler.x > 180.0f)
         {
@@ -108,9 +110,10 @@ public class PlayerControls : MonoBehaviour
         targetEuler.x = Mathf.Clamp(targetEuler.x, -75.0f, 75.0f);
         TargetRotation = Quaternion.Euler(targetEuler);
 
-        //playerCam.transform.localRotation = Quaternion.Euler(targetEuler.x, 0, 0); // idea for a new way to rotate the camera
-        //transform.rotation = Quaternion.Euler(0, targetEuler.y, 0);
 
+        //playerCam.transform.rotation = Quaternion.Slerp(playerCam.transform.rotation, TargetRotation, Time.deltaTime * 15.0f);
+
+        //targetEuler.x = 0;
         transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation, Time.deltaTime * 15.0f);
     }
 

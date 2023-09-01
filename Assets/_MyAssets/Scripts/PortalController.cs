@@ -21,8 +21,16 @@ public class PortalController : MonoBehaviour
     [SerializeField]
     private int iterations = 7;
 
+    public float sphereRadius = 1.5f;
+
     private RenderTexture texture1;
     private RenderTexture texture2;
+
+    private Animator hand_Anim;
+    [SerializeField] private Transform spawnTransform;
+    private RaycastHit portalHit;
+    private int portalID;
+    [SerializeField] private GameObject[] portalProj;
 
     public float camY;
 
@@ -38,6 +46,8 @@ public class PortalController : MonoBehaviour
     private void Awake()
     {
         PC = GetComponent<PlayerControls>();
+
+        hand_Anim = playerCam.transform.Find("WhiteHand").GetComponent<Animator>();
 
         texture1 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
         texture2 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
@@ -139,29 +149,39 @@ public class PortalController : MonoBehaviour
         --inPortalCount;
     }
 
-    public virtual void Warp()
+    public virtual void Teleport()
     {
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
 
-        // Update position of object.
-        Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
+        Debug.Log("Tried teleporting the player");
+
+
+        
+
+        // teleport relative Position
+        /*Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
         relativePos = halfTurn * relativePos;
         transform.position = outTransform.TransformPoint(relativePos);
+        transform.position += -transform.forward * 1f;
 
-        // Update rotation of object.
-        Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
-        relativeRot = halfTurn * relativeRot;
-        transform.rotation = outTransform.rotation * relativeRot;
+        // change camera rotation
+        transform.rotation = outTransform.rotation;
+        PC.TargetRotation = transform.rotation;*/
 
-        // Update velocity of rigidbody.
-        Vector3 relativeVel = inTransform.InverseTransformDirection(GetComponent<CharacterController>().velocity);
-        relativeVel = halfTurn * relativeVel;
+
 
         // Swap portal references.
         var tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;
+    }
+
+    public void firePortalProj()
+    {
+        GameObject proj = Instantiate(portalProj[portalID], spawnTransform.position, spawnTransform.rotation);
+        proj.GetComponent<portalProj>().hit = portalHit;
+        proj.GetComponent<portalProj>().portalID = portalID;
     }
 
     public void FirePortal(int portalID, float distance)
@@ -173,31 +193,51 @@ public class PortalController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            // Orient the portal according to camera look direction and surface direction.
-            var cameraRotation = PC.TargetRotation;
-            var portalRight = cameraRotation * Vector3.right;
-
-            if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
+            Collider[] nearbyColliders = Physics.OverlapSphere(hit.point, sphereRadius, LayerMask.GetMask("portalStatic"));
+            foreach(Collider coll in nearbyColliders)
             {
-                portalRight = (portalRight.x >= 0) ? Vector3.right : -Vector3.right;
-            }
-            else
-            {
-                portalRight = (portalRight.z >= 0) ? Vector3.forward : -Vector3.forward;
+                if(coll.CompareTag("Portal"))
+                {
+                    Debug.Log("Can't place a portal there!");
+                    return;
+                }
             }
 
-            var portalForward = -hit.normal;
-            var portalUp = -Vector3.Cross(portalRight, portalForward);
+            //Fire animation
+            portalHit = hit;
+            this.portalID = portalID;
+            hand_Anim.ResetTrigger("fire");
+            hand_Anim.SetTrigger("fire");
+        }
+    }
 
-            var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
+    public void PlacePortal(RaycastHit hit, int portalID)
+    {
+        // Orient the portal according to camera look direction and surface direction.
+        var cameraRotation = PC.TargetRotation;
+        var portalRight = cameraRotation * Vector3.right;
 
-            // This places the portal and returns a bool if it worked or not
-            bool bPlaced = portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
+        if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
+        {
+            portalRight = (portalRight.x >= 0) ? Vector3.right : -Vector3.right;
+        }
+        else
+        {
+            portalRight = (portalRight.z >= 0) ? Vector3.forward : -Vector3.forward;
+        }
 
-            if(!bPlaced)
-            {
-                //Do a particle for when it fails
-            }
+        var portalForward = -hit.normal;
+        var portalUp = -Vector3.Cross(portalRight, portalForward);
+
+        var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
+
+
+        // This places the portal and returns a bool if it worked or not
+        bool bPlaced = portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
+
+        if (!bPlaced)
+        {
+            //Do a particle for when it fails
         }
     }
 }
