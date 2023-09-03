@@ -28,6 +28,8 @@ public class portalProj : MonoBehaviour
     {
         if (bStop) return;
 
+        if (Time.timeScale == 0) return;
+
         // Gradually increase the speed over time
         currentSpeed += acceleration * Time.deltaTime;
 

@@ -13,6 +13,8 @@ public class PortalController : MonoBehaviour
     public Camera playerCam;
     public Camera portalCam;
     //public Quaternion TargetRotation;
+    private Collider originalCollider;
+    private Collider cashedCollider;
 
     [Header("Portals")]
     [SerializeField] private LayerMask portalLayer;
@@ -32,13 +34,15 @@ public class PortalController : MonoBehaviour
     private int portalID;
     [SerializeField] private GameObject[] portalProj;
 
+    private int burstDuration;
+    [SerializeField] private float velocityMultiplyer = 1.1f;
+    [SerializeField] private int burstAmount = 12; //in frames
+
     public float camY;
 
     PlayerControls PC;
 
     private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
-
-    private int inPortalCount = 0;
 
     private Portal inPortal;
     private Portal outPortal;
@@ -76,7 +80,7 @@ public class PortalController : MonoBehaviour
             return;
         }
 
-        if(portals[0].Renderer.isVisible)
+        if (portals[0].Renderer.isVisible)
         {
             portalCam.targetTexture = texture1;
             for (int i = iterations - 1; i >= 0; --i)
@@ -138,43 +142,85 @@ public class PortalController : MonoBehaviour
         this.inPortal = inPortal;
         this.outPortal = outPortal;
 
+        originalCollider = wallCollider;
         Physics.IgnoreCollision(GetComponent<CharacterController>(), wallCollider);
-
-        ++inPortalCount;
     }
 
-    public void ExitPortal(Collider wallCollider)
+    public void ExitPortal()
     {
-        Physics.IgnoreCollision(GetComponent<CharacterController>(), wallCollider, false);
-        --inPortalCount;
+        Physics.IgnoreCollision(GetComponent<CharacterController>(), originalCollider, false);
+        Physics.IgnoreCollision(GetComponent<CharacterController>(), cashedCollider, false);
     }
 
     public virtual void Teleport()
     {
+        StartCoroutine(launchTeleport());
+    }
+
+    public IEnumerator launchTeleport()
+    {
+        Vector3 currentVelocity = PC.CC.velocity;
+        PC.CC.enabled = false;
+
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
 
         Debug.Log("Tried teleporting the player");
 
+        inTransform.GetComponent<Portal>().collider1.enabled = false;
+        inTransform.GetComponent<Portal>().collider2.enabled = false;
+        outTransform.GetComponent<Portal>().collider1.enabled = false;
+        outTransform.GetComponent<Portal>().collider2.enabled = false;
 
-        
+        cashedCollider = outTransform.GetComponent<Portal>().getWall();
+        Physics.IgnoreCollision(GetComponent<CharacterController>(), cashedCollider);
 
         // teleport relative Position
-        /*Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
+        Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
         relativePos = halfTurn * relativePos;
         transform.position = outTransform.TransformPoint(relativePos);
-        transform.position += -transform.forward * 1f;
 
         // change camera rotation
-        transform.rotation = outTransform.rotation;
-        PC.TargetRotation = transform.rotation;*/
+        //transform.rotation = outTransform.rotation * halfTurn;
+        //PC.TargetRotation = outTransform.rotation * halfTurn;
 
-
+        // Update rotation of object.
+        Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
+        relativeRot = halfTurn * relativeRot;
+        PC.TargetRotation = outTransform.rotation * relativeRot;
 
         // Swap portal references.
         var tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;
+
+        yield return new WaitForEndOfFrame();
+        PC.CC.enabled = true;
+
+        PC.currentSpeed *= velocityMultiplyer;
+        burstDuration = burstAmount;
+        StartCoroutine(burstSpeed());
+    }
+
+    private IEnumerator burstSpeed()
+    {
+        if (!PC.isGrounded) PC.setGravity(0);
+
+        yield return new WaitForEndOfFrame();
+
+        PC.TargetRotation.x = Mathf.Lerp(PC.TargetRotation.x, 0, 6 * Time.deltaTime);
+        PC.TargetRotation.z = Mathf.Lerp(PC.TargetRotation.z, 0, 6 * Time.deltaTime);
+
+
+        --burstDuration;
+        if(burstDuration > 0)
+        {
+            StartCoroutine(burstSpeed());
+        }
+        else
+        {
+            PC.resetGravity();
+        }
     }
 
     public void firePortalProj()

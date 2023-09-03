@@ -42,6 +42,8 @@ public class portalObject : MonoBehaviour
             return;
         }
 
+        if (Time.timeScale == 0) return;
+
         if (cloneObject.activeSelf == true && inPortal.bPlaced && outPortal.bPlaced)
         {
             var inTransform = inPortal.transform;

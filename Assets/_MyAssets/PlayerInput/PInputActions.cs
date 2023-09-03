@@ -80,6 +80,15 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ac5b11c-61b1-44a0-bbfb-7ad353e9eb0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,39 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""PortalRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5adb01e9-4ea6-4128-aec7-cc569fe69aa3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be5def91-a444-4765-bfd8-e5b266e836e8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""249be278-f417-43b3-b83b-e64c957b9ca5"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +248,7 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_PortalLeft = m_Player.FindAction("PortalLeft", throwIfNotFound: true);
         m_Player_PortalRight = m_Player.FindAction("PortalRight", throwIfNotFound: true);
+        m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -273,6 +316,7 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_PortalLeft;
     private readonly InputAction m_Player_PortalRight;
+    private readonly InputAction m_Player_Menu;
     public struct PlayerActions
     {
         private @PInputActions m_Wrapper;
@@ -283,6 +327,7 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @PortalLeft => m_Wrapper.m_Player_PortalLeft;
         public InputAction @PortalRight => m_Wrapper.m_Player_PortalRight;
+        public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -310,6 +355,9 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
             @PortalRight.started += instance.OnPortalRight;
             @PortalRight.performed += instance.OnPortalRight;
             @PortalRight.canceled += instance.OnPortalRight;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -332,6 +380,9 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
             @PortalRight.started -= instance.OnPortalRight;
             @PortalRight.performed -= instance.OnPortalRight;
             @PortalRight.canceled -= instance.OnPortalRight;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -357,5 +408,6 @@ public partial class @PInputActions: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnPortalLeft(InputAction.CallbackContext context);
         void OnPortalRight(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

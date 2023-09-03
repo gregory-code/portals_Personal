@@ -18,11 +18,12 @@ public class Portal : MonoBehaviour
     public bool bPlaced = false;
 
     private List<portalObject> portalObjects = new List<portalObject>();
-    private Collider wallCollider;
+    public Collider wallCollider;
 
-    private bool bPlayerTele;
+    public bool bPlayerTele;
 
-    private new BoxCollider collider;
+    public BoxCollider collider1;
+    public BoxCollider collider2;
 
     private ParticleSystem cloudParticles;
     private Transform pulseEffect;
@@ -34,7 +35,6 @@ public class Portal : MonoBehaviour
 
     private void Awake()
     {
-        collider = GetComponent<BoxCollider>();
         Renderer = GetComponent<Renderer>();
         portalAnim_Controller = GetComponent<Animator>();
 
@@ -55,9 +55,16 @@ public class Portal : MonoBehaviour
 
         if (!bPlaced || !OtherPortal.bPlaced) return;
 
+        if (Time.timeScale == 0) return;
+
         ItemTeleport();
         IsViewable();
         PlayerTeleport();
+    }
+
+    public Collider getWall()
+    {
+        return wallCollider;
     }
 
     private void IsViewable()
@@ -135,14 +142,6 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            PortalController PC = other.GetComponent<PortalController>();
-            Debug.Log("Player went out");
-            bPlayerTele = false;
-            PC.ExitPortal(wallCollider);
-        }
-
         var obj = other.GetComponent<portalObject>();
 
         if (portalObjects.Contains(obj))
@@ -271,7 +270,7 @@ public class Portal : MonoBehaviour
         else if (intersections.Length == 1)
         {
             // We are allowed to intersect the old portal position.
-            if (intersections[0] != collider)
+            if (intersections[0] != collider1)
             {
                 return false;
             }
