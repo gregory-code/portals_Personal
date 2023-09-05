@@ -33,7 +33,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float cashedGravity = -5;
     private float gravity = -5;
     [SerializeField] private float jumpHeight = 4;
-    Vector3 playerVelocity;
+    public Vector3 playerVelocity;
     public bool isGrounded;
 
     bool bCrouching;
@@ -63,7 +63,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         setSpeed = walkSpeed;
-        recoverySpeed = 0.005f;
+        recoverySpeed = 0.009f;
 
         Cursor.lockState = CursorLockMode.Locked;   // Locks the cursor to the center of the screen
         Cursor.visible = false;                     // Hides the cursor
@@ -167,7 +167,14 @@ public class PlayerControls : MonoBehaviour
     {
         if (context.performed)
         {
-            PC.FirePortal(0, 250.0f);
+            if(bHasLost == true)
+            {
+                StartCoroutine(resetPos());
+            }
+            else
+            {
+                PC.FirePortal(0, 75.0f);
+            }
         }
     }
 
@@ -175,7 +182,14 @@ public class PlayerControls : MonoBehaviour
     {
         if (context.performed)
         {
-            PC.FirePortal(1, 250.0f);
+            if (bHasLost == true)
+            {
+                StartCoroutine(resetPos());
+            }
+            else
+            {
+                PC.FirePortal(1, 75.0f);
+            }
         }
     }
 
@@ -208,6 +222,11 @@ public class PlayerControls : MonoBehaviour
     public void resetGravity()
     {
         gravity = cashedGravity;
+    }
+
+    public float getGravity()
+    {
+        return gravity;
     }
 
     public void sensSlider()
@@ -286,7 +305,7 @@ public class PlayerControls : MonoBehaviour
         {
             if (bHasLost == true)
             {
-                float transparency = bloodLoseScreen.GetComponent<Image>().color.a + 0.01f;
+                float transparency = bloodLoseScreen.GetComponent<Image>().color.a + 0.05f;
                 bloodLoseScreen.GetComponent<Image>().color = new Color(1, 1, 1, transparency);
                 bloodLoseScreen.transform.Find("terminal").GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, transparency);
 
@@ -294,10 +313,10 @@ public class PlayerControls : MonoBehaviour
                 t.localScale = Vector3.zero;
                 t.GetComponent<Image>().sprite = warningLibrary[Random.Range(0, warningLibrary.Length)];
 
-                while (t.localScale.x < 2.2f && bHasLost == true)
+                while (t.localScale.x < 3.5f && bHasLost == true)
                 {
                     yield return new WaitForSeconds(0.01f);
-                    t.localScale += new Vector3(0.8f, 0.8f, 0.8f);
+                    t.localScale += new Vector3(0.9f, 0.9f, 0.9f);
                 }
 
                 if(bHasLost == false)

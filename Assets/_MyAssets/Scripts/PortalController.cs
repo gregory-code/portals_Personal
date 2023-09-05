@@ -37,6 +37,7 @@ public class PortalController : MonoBehaviour
     private int burstDuration;
     [SerializeField] private float velocityMultiplyer = 1.1f;
     [SerializeField] private int burstAmount = 12; //in frames
+    bool bExitedHorizontalPortal;
 
     public float camY;
 
@@ -165,7 +166,12 @@ public class PortalController : MonoBehaviour
         Transform inTransform = inPortal.transform;
         Transform outTransform = outPortal.transform;
 
-        Debug.Log("Tried teleporting the player");
+        if (outTransform.localEulerAngles.x < 180 && outTransform.localEulerAngles.x > 60)
+        {
+            bExitedHorizontalPortal = true;
+        }
+
+        Debug.Log("Out Transform: " + outTransform.localEulerAngles.x);
 
         inTransform.GetComponent<Portal>().collider1.enabled = false;
         inTransform.GetComponent<Portal>().collider2.enabled = false;
@@ -181,10 +187,6 @@ public class PortalController : MonoBehaviour
         transform.position = outTransform.TransformPoint(relativePos);
 
         // change camera rotation
-        //transform.rotation = outTransform.rotation * halfTurn;
-        //PC.TargetRotation = outTransform.rotation * halfTurn;
-
-        // Update rotation of object.
         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
         relativeRot = halfTurn * relativeRot;
         PC.TargetRotation = outTransform.rotation * relativeRot;
@@ -196,9 +198,10 @@ public class PortalController : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
         PC.CC.enabled = true;
-
+        
         PC.currentSpeed *= velocityMultiplyer;
         burstDuration = burstAmount;
+
         StartCoroutine(burstSpeed());
     }
 
@@ -208,8 +211,14 @@ public class PortalController : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        PC.TargetRotation.x = Mathf.Lerp(PC.TargetRotation.x, 0, 6 * Time.deltaTime);
-        PC.TargetRotation.z = Mathf.Lerp(PC.TargetRotation.z, 0, 6 * Time.deltaTime);
+        PC.TargetRotation.x = Mathf.Lerp(PC.TargetRotation.x, 0, 9 * Time.deltaTime);
+        PC.TargetRotation.z = Mathf.Lerp(PC.TargetRotation.z, 0, 9 * Time.deltaTime);
+
+        if(PC.isGrounded == false && bExitedHorizontalPortal == true)
+        {
+            PC.playerVelocity.y = PC.currentSpeed;
+            PC.CC.Move(PC.playerVelocity * Time.deltaTime);
+        }
 
 
         --burstDuration;
@@ -219,6 +228,7 @@ public class PortalController : MonoBehaviour
         }
         else
         {
+            bExitedHorizontalPortal = false;
             PC.resetGravity();
         }
     }
@@ -252,8 +262,10 @@ public class PortalController : MonoBehaviour
             //Fire animation
             portalHit = hit;
             this.portalID = portalID;
-            hand_Anim.ResetTrigger("fire");
-            hand_Anim.SetTrigger("fire");
+
+            int randomAnim = Random.Range(1, 4);
+            hand_Anim.ResetTrigger("fire" + randomAnim);
+            hand_Anim.SetTrigger("fire" + randomAnim);
         }
     }
 

@@ -50,7 +50,7 @@ public class Portal : MonoBehaviour
     }
 
     private void Update()
-    {
+    {        
         Renderer.enabled = OtherPortal.bPlaced;
 
         if (!bPlaced || !OtherPortal.bPlaced) return;
@@ -60,6 +60,7 @@ public class Portal : MonoBehaviour
         ItemTeleport();
         IsViewable();
         PlayerTeleport();
+
     }
 
     public Collider getWall()
@@ -121,6 +122,9 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!bPlaced || !OtherPortal.bPlaced) return;
+
+        if (Time.timeScale == 0) return;
 
         if (other.tag == "Player")
         {
@@ -142,6 +146,10 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!bPlaced || !OtherPortal.bPlaced) return;
+
+        if (Time.timeScale == 0) return;
+
         var obj = other.GetComponent<portalObject>();
 
         if (portalObjects.Contains(obj))

@@ -6,6 +6,7 @@ using UnityEngine;
 public class respawnBox : MonoBehaviour
 {
     [SerializeField] private Transform respawnPoint;
+    [SerializeField] private GameObject popupNotif;
 
     private void Awake()
     {
@@ -17,6 +18,8 @@ public class respawnBox : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerControls>().respawnPoint = respawnPoint;
+            //GameObject popup = Instantiate(popupNotif);
+            //popup.transform.SetParent(GameObject.Find("Canvas").transform);
 
         }
     }
