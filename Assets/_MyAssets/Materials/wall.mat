@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: blue
+  m_Name: wall
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -113,12 +113,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.17087929, g: 0.19167016, b: 0.4245283, a: 1}
-    - _Color: {r: 0.17087924, g: 0.19167012, b: 0.42452827, a: 1}
+    - _BaseColor: {r: 0.44075587, g: 0.56958365, b: 0.7830189, a: 1}
+    - _Color: {r: 0.44075584, g: 0.56958365, b: 0.7830188, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &2676352393323029
+--- !u!114 &6581690249630119882
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

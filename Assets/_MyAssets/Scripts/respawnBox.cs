@@ -18,8 +18,8 @@ public class respawnBox : MonoBehaviour
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerControls>().respawnPoint = respawnPoint;
-            //GameObject popup = Instantiate(popupNotif);
-            //popup.transform.SetParent(GameObject.Find("Canvas").transform);
+            GameObject popup = Instantiate(popupNotif);
+            popup.transform.SetParent(GameObject.Find("Canvas").transform);
 
         }
     }

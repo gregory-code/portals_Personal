@@ -189,9 +189,9 @@ public class PortalController : MonoBehaviour
         // change camera rotation
         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
         relativeRot = halfTurn * relativeRot;
-        PC.TargetRotation = outTransform.rotation * relativeRot;
+        transform.rotation = outTransform.rotation * relativeRot; // rotates player camera
+        PC.TargetRotation = outTransform.rotation * relativeRot; // adjusts players perspective over time
 
-        // Swap portal references.
         var tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;

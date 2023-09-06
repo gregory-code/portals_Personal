@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
 using static UnityEditor.SceneView;
@@ -14,6 +15,9 @@ public class PlayerControls : MonoBehaviour
     public PInputActions pInputActions;
     public CharacterController CC;
     private PortalController PC;
+
+    // Player Prefs
+    private float playerSens = 4;
 
     [Header("Movement")]
     public float currentSpeed = 4;
@@ -36,9 +40,7 @@ public class PlayerControls : MonoBehaviour
     public Vector3 playerVelocity;
     public bool isGrounded;
 
-    bool bCrouching;
-
-    bool bSprinting;
+    public Slider sensitivitySlider;
 
     bool bHasLost;
     [SerializeField] private GameObject bloodLoseScreen;
@@ -51,6 +53,9 @@ public class PlayerControls : MonoBehaviour
 
     private void Awake()
     {
+        playerSens = PlayerPrefs.GetFloat("playerSens");
+        cameraSpeed = playerSens;
+        sensitivitySlider.value = playerSens;
 
         pInputActions = new PInputActions();
         pInputActions.Player.Enable();
@@ -150,7 +155,7 @@ public class PlayerControls : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context)
     {
-        if (context.started && !bCrouching && currentSpeed < sprintSpeed)
+        /*if (context.started && !bCrouching && currentSpeed < sprintSpeed)
         {
             setSpeed = sprintSpeed;
             bSprinting = true;
@@ -160,7 +165,7 @@ public class PlayerControls : MonoBehaviour
         {
             setSpeed = walkSpeed;
             bSprinting = false;
-        }
+        }*/
     }
 
     public void PortalLeft(InputAction.CallbackContext context)
@@ -231,7 +236,13 @@ public class PlayerControls : MonoBehaviour
 
     public void sensSlider()
     {
-        cameraSpeed = GameObject.Find("sensitivity").GetComponent<Slider>().value;
+        cameraSpeed = sensitivitySlider.value;
+        PlayerPrefs.SetFloat("playerSens", cameraSpeed);
+    }
+
+    public void home()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void retryButton()
