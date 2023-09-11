@@ -15,12 +15,12 @@ public class portalObject : MonoBehaviour
     private Portal inPortal;
     private Portal outPortal;
 
-    private new Rigidbody rigidbody;
-    protected new Collider collider;
+    private Rigidbody rigidbody;
+    private Collider collider;
 
     private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
-    protected virtual void Awake()
+    public void Awake()
     {
         cloneObject = new GameObject();
         cloneObject.SetActive(false);
@@ -37,6 +37,11 @@ public class portalObject : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (transform.position.y < -5)
+        {
+            Destroy(this.gameObject);
+        }
+
         if (inPortal == null || outPortal == null)
         {
             return;

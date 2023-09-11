@@ -12,40 +12,49 @@ using RenderPipeline = UnityEngine.Rendering.RenderPipelineManager;
 [RequireComponent(typeof(BoxCollider))]
 public class Portal : MonoBehaviour
 {
-    [SerializeField] private LayerMask placementMask;
     public Portal OtherPortal;
     public Transform placement;
     public bool bPlaced = false;
 
-    private List<portalObject> portalObjects = new List<portalObject>();
     public Collider wallCollider;
 
     public bool bPlayerTele;
 
-    public BoxCollider collider1;
-    public BoxCollider collider2;
+    //Private Variables
+    [SerializeField] private LayerMask _placementMask;
+    
+    private List<portalObject> _portalObjects = new List<portalObject>();
 
-    private ParticleSystem cloudParticles;
-    private Transform pulseEffect;
+    [SerializeField] private BoxCollider _collider1;
+    [SerializeField] private BoxCollider _collider2;
+
+    private ParticleSystem _cloudParticles;
+    private Transform _pulseEffect;
 
     private PlayerControls PC;
-    private Animator portalAnim_Controller;
+    private Animator _portalAnimController;
 
     public Renderer Renderer { get; private set; }
+
+    public void SetCollisionEnabled(bool enabled)
+    {
+        _collider1.enabled = enabled;
+        _collider2.enabled = enabled;
+    }
 
     private void Awake()
     {
         Renderer = GetComponent<Renderer>();
-        portalAnim_Controller = GetComponent<Animator>();
+        _portalAnimController = GetComponent<Animator>();
 
-        cloudParticles = transform.Find("Smoke").GetComponent<ParticleSystem>();
-        pulseEffect = transform.Find("pulse").GetComponent<Transform>();
+        _cloudParticles = transform.Find("Smoke").GetComponent<ParticleSystem>();
+        _pulseEffect = transform.Find("pulse").GetComponent<Transform>();
     }
 
     private void Start()
     {
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>();
-        portalAnim_Controller.SetTrigger("Place");
+        _portalAnimController.SetTrigger("Place");
         gameObject.SetActive(false);
     }
 
@@ -80,13 +89,13 @@ public class Portal : MonoBehaviour
 
         if (isPortalAInView && !isPortalBInView) // my portal is visable, other is not
         {
-            pulseEffect.transform.localPosition = new Vector3(0, 0, -0.001f); //pushes pulse back so it cannot be seen through portal
+            _pulseEffect.transform.localPosition = new Vector3(0, 0, -0.001f); //pushes pulse back so it cannot be seen through portal
             
             return;
         }
         else if (!isPortalAInView && isPortalBInView) // other portal is visable, mine is not
         {
-            pulseEffect.transform.localPosition = new Vector3(0, 0, 0.001f); //pushes pulse forward so it's seen
+            _pulseEffect.transform.localPosition = new Vector3(0, 0, 0.001f); //pushes pulse forward so it's seen
 
             return;
         }
@@ -94,13 +103,13 @@ public class Portal : MonoBehaviour
 
     private void ItemTeleport()
     {
-        for (int i = 0; i < portalObjects.Count; ++i)
+        for (int i = 0; i < _portalObjects.Count; ++i)
         {
-            Vector3 portalObj = transform.InverseTransformPoint(portalObjects[i].transform.position);
+            Vector3 portalObj = transform.InverseTransformPoint(_portalObjects[i].transform.position);
 
             if (portalObj.z > 0)
             {
-                portalObjects[i].Teleport();
+                _portalObjects[i].Teleport();
             }
         }
     }
@@ -138,7 +147,7 @@ public class Portal : MonoBehaviour
         if(obj != null)
         {
             Debug.Log("Object went in");
-            portalObjects.Add(obj);
+            _portalObjects.Add(obj);
             obj.SetIsInPortal(this, OtherPortal, wallCollider);
         }
     }
@@ -152,17 +161,17 @@ public class Portal : MonoBehaviour
 
         var obj = other.GetComponent<portalObject>();
 
-        if (portalObjects.Contains(obj))
+        if (_portalObjects.Contains(obj))
         {
             Debug.Log("Object went out");
-            portalObjects.Remove(obj);
+            _portalObjects.Remove(obj);
             obj.ExitPortal(wallCollider);
         }
     }
 
     public void disapateSmoke()
     {
-        ParticleSystem.MainModule cloud = cloudParticles.main;
+        ParticleSystem.MainModule cloud = _cloudParticles.main;
         cloud.startSize = new ParticleSystem.MinMaxCurve(min: 0f, max: 0f);
     }
 
@@ -186,11 +195,11 @@ public class Portal : MonoBehaviour
             gameObject.SetActive(true);
             bPlaced = true;
 
-            ParticleSystem.MainModule cloud = cloudParticles.main;
+            ParticleSystem.MainModule cloud = _cloudParticles.main;
             cloud.startSize = new ParticleSystem.MinMaxCurve(min: 0.1f, max: 0.5f);
-            portalAnim_Controller.speed = (PC.currentSpeed / 4);
-            portalAnim_Controller.ResetTrigger("Place");
-            portalAnim_Controller.SetTrigger("Place");
+            _portalAnimController.speed = (PC.currentSpeed / 4);
+            _portalAnimController.ResetTrigger("Place");
+            _portalAnimController.SetTrigger("Place");
 
             return true;
         }
@@ -217,11 +226,11 @@ public class Portal : MonoBehaviour
             Vector3 raycastPos = placement.TransformPoint(testPoints[i]);
             Vector3 raycastDir = placement.TransformDirection(testDirs[i]);
 
-            if (Physics.CheckSphere(raycastPos, 0.05f, placementMask))
+            if (Physics.CheckSphere(raycastPos, 0.05f, _placementMask))
             {
                 break;
             }
-            else if (Physics.Raycast(raycastPos, raycastDir, out hit, 2, placementMask))
+            else if (Physics.Raycast(raycastPos, raycastDir, out hit, 2, _placementMask))
             {
                 var offset = hit.point - raycastPos;
                 placement.Translate(offset, Space.World);
@@ -242,7 +251,7 @@ public class Portal : MonoBehaviour
             Vector3 raycastPos = placement.TransformPoint(0.0f, 0.0f, -0.1f);
             Vector3 raycastDir = placement.TransformDirection(testDirs[i]);
 
-            if (Physics.Raycast(raycastPos, raycastDir, out hit, testDists[i], placementMask))
+            if (Physics.Raycast(raycastPos, raycastDir, out hit, testDists[i], _placementMask))
             {
                 var offset = (hit.point - raycastPos);
                 var newOffset = -raycastDir * (testDists[i] - offset.magnitude);
@@ -269,7 +278,7 @@ public class Portal : MonoBehaviour
         };
 
         // Ensure the portal does not intersect walls.
-        var intersections = Physics.OverlapBox(checkPositions[0], checkExtents, placement.rotation, placementMask);
+        var intersections = Physics.OverlapBox(checkPositions[0], checkExtents, placement.rotation, _placementMask);
 
         if (intersections.Length > 1)
         {
@@ -278,7 +287,7 @@ public class Portal : MonoBehaviour
         else if (intersections.Length == 1)
         {
             // We are allowed to intersect the old portal position.
-            if (intersections[0] != collider1)
+            if (intersections[0] != _collider1)
             {
                 return false;
             }
@@ -289,7 +298,7 @@ public class Portal : MonoBehaviour
 
         for (int i = 1; i < checkPositions.Length - 1; ++i)
         {
-            bOverlap &= Physics.Linecast(checkPositions[i], checkPositions[i] + checkPositions[checkPositions.Length - 1], placementMask);
+            bOverlap &= Physics.Linecast(checkPositions[i], checkPositions[i] + checkPositions[checkPositions.Length - 1], _placementMask);
         }
 
         return bOverlap;

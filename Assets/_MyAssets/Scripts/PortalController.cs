@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
-using static UnityEditor.SceneView;
 using RenderPipeline = UnityEngine.Rendering.RenderPipelineManager;
 
 public class PortalController : MonoBehaviour
@@ -13,55 +12,55 @@ public class PortalController : MonoBehaviour
     public Camera playerCam;
     public Camera portalCam;
     //public Quaternion TargetRotation;
-    private Collider originalCollider;
-    private Collider cashedCollider;
+    private Collider _originalCollider;
+    private Collider _cashedCollider;
 
     [Header("Portals")]
-    [SerializeField] private LayerMask portalLayer;
-    [SerializeField] private Portal[] portals = new Portal[2];
+    [SerializeField] private LayerMask _portalLayer;
+    [SerializeField] private Portal[] _portals = new Portal[2];
 
     [SerializeField]
-    private int iterations = 7;
+    private int _iterations = 7;
 
     public float sphereRadius = 1.5f;
 
-    private RenderTexture texture1;
-    private RenderTexture texture2;
+    private RenderTexture _texture1;
+    private RenderTexture _texture2;
 
     private Animator hand_Anim;
-    [SerializeField] private Transform spawnTransform;
-    private RaycastHit portalHit;
-    private int portalID;
-    [SerializeField] private GameObject[] portalProj;
+    [SerializeField] private Transform _spawnTransform;
+    [SerializeField] private GameObject[] _portalProj;
+    private RaycastHit _portalHit;
+    private int _portalID;
 
-    private int burstDuration;
-    [SerializeField] private float velocityMultiplyer = 1.1f;
-    [SerializeField] private int burstAmount = 12; //in frames
-    bool bExitedHorizontalPortal;
+    private int _burstDuration;
+    [SerializeField] private float _velocityMultiplyer = 1.1f;
+    [SerializeField] private int _burstAmount = 12; //in frames
+    bool _bExitedHorizontalPortal;
 
     public float camY;
 
-    PlayerControls PC;
+    PlayerControls _playerControls;
 
-    private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+    private static readonly Quaternion _halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
 
-    private Portal inPortal;
-    private Portal outPortal;
+    private Portal _inPortal;
+    private Portal _outPortal;
 
     private void Awake()
     {
-        PC = GetComponent<PlayerControls>();
+        _playerControls = GetComponent<PlayerControls>();
 
         hand_Anim = playerCam.transform.Find("WhiteHand").GetComponent<Animator>();
 
-        texture1 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
-        texture2 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
+        _texture1 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
+        _texture2 = new RenderTexture(Screen.width, Screen.height, 24, RenderTextureFormat.ARGB32);
     }
 
     private void Start()
     {
-        portals[0].Renderer.material.mainTexture = texture1;
-        portals[1].Renderer.material.mainTexture = texture2;
+        _portals[0].Renderer.material.mainTexture = _texture1;
+        _portals[1].Renderer.material.mainTexture = _texture2;
     }
 
     private void OnEnable()
@@ -76,26 +75,26 @@ public class PortalController : MonoBehaviour
 
     void UpdateCamera(ScriptableRenderContext SRC, Camera camera)
     {
-        if (!portals[0].bPlaced || !portals[1].bPlaced)
+        if (!_portals[0].bPlaced || !_portals[1].bPlaced)
         {
             return;
         }
 
-        if (portals[0].Renderer.isVisible)
+        if (_portals[0].Renderer.isVisible)
         {
-            portalCam.targetTexture = texture1;
-            for (int i = iterations - 1; i >= 0; --i)
+            portalCam.targetTexture = _texture1;
+            for (int i = _iterations - 1; i >= 0; --i)
             {
-                RenderCamera(portals[0], portals[1], i, SRC);
+                RenderCamera(_portals[0], _portals[1], i, SRC);
             }
         }
 
-        if (portals[1].Renderer.isVisible)
+        if (_portals[1].Renderer.isVisible)
         {
-            portalCam.targetTexture = texture2;
-            for (int i = iterations - 1; i >= 0; --i)
+            portalCam.targetTexture = _texture2;
+            for (int i = _iterations - 1; i >= 0; --i)
             {
-                RenderCamera(portals[1], portals[0], i, SRC);
+                RenderCamera(_portals[1], _portals[0], i, SRC);
             }
         }
     }
@@ -140,17 +139,17 @@ public class PortalController : MonoBehaviour
 
     public void SetIsInPortal(Portal inPortal, Portal outPortal, Collider wallCollider)
     {
-        this.inPortal = inPortal;
-        this.outPortal = outPortal;
+        this._inPortal = inPortal;
+        this._outPortal = outPortal;
 
-        originalCollider = wallCollider;
+        _originalCollider = wallCollider;
         Physics.IgnoreCollision(GetComponent<CharacterController>(), wallCollider);
     }
 
     public void ExitPortal()
     {
-        Physics.IgnoreCollision(GetComponent<CharacterController>(), originalCollider, false);
-        Physics.IgnoreCollision(GetComponent<CharacterController>(), cashedCollider, false);
+        Physics.IgnoreCollision(GetComponent<CharacterController>(), _originalCollider, false);
+        Physics.IgnoreCollision(GetComponent<CharacterController>(), _cashedCollider, false);
     }
 
     public virtual void Teleport()
@@ -160,91 +159,89 @@ public class PortalController : MonoBehaviour
 
     public IEnumerator launchTeleport()
     {
-        Vector3 currentVelocity = PC.CC.velocity;
-        PC.CC.enabled = false;
+        Vector3 currentVelocity = _playerControls.characterController.velocity;
+        _playerControls.characterController.enabled = false;
 
-        Transform inTransform = inPortal.transform;
-        Transform outTransform = outPortal.transform;
+        Transform inTransform = _inPortal.transform;
+        Transform outTransform = _outPortal.transform;
 
         if (outTransform.localEulerAngles.x < 180 && outTransform.localEulerAngles.x > 60)
         {
-            bExitedHorizontalPortal = true;
+            _bExitedHorizontalPortal = true;
         }
 
         Debug.Log("Out Transform: " + outTransform.localEulerAngles.x);
 
-        inTransform.GetComponent<Portal>().collider1.enabled = false;
-        inTransform.GetComponent<Portal>().collider2.enabled = false;
-        outTransform.GetComponent<Portal>().collider1.enabled = false;
-        outTransform.GetComponent<Portal>().collider2.enabled = false;
+        inTransform.GetComponent<Portal>().SetCollisionEnabled(false);
+        outTransform.GetComponent<Portal>().SetCollisionEnabled(false);
 
-        cashedCollider = outTransform.GetComponent<Portal>().getWall();
-        Physics.IgnoreCollision(GetComponent<CharacterController>(), cashedCollider);
+        _cashedCollider = outTransform.GetComponent<Portal>().getWall();
+        Physics.IgnoreCollision(GetComponent<CharacterController>(), _cashedCollider);
 
         // teleport relative Position
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
-        relativePos = halfTurn * relativePos;
+        relativePos = _halfTurn * relativePos;
         transform.position = outTransform.TransformPoint(relativePos);
 
         // change camera rotation
         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
-        relativeRot = halfTurn * relativeRot;
+        relativeRot = _halfTurn * relativeRot;
         transform.rotation = outTransform.rotation * relativeRot; // rotates player camera
-        PC.TargetRotation = outTransform.rotation * relativeRot; // adjusts players perspective over time
+        _playerControls.TargetRotation = outTransform.rotation * relativeRot; // adjusts players perspective over time
 
-        var tmp = inPortal;
-        inPortal = outPortal;
-        outPortal = tmp;
+        var tmp = _inPortal;
+        _inPortal = _outPortal;
+        _outPortal = tmp;
 
         yield return new WaitForEndOfFrame();
-        PC.CC.enabled = true;
-        
-        PC.currentSpeed *= velocityMultiplyer;
-        burstDuration = burstAmount;
+        _playerControls.characterController.enabled = true;
+
+        _playerControls.currentSpeed *= _velocityMultiplyer;
+        _burstDuration = _burstAmount;
 
         StartCoroutine(burstSpeed());
     }
 
     private IEnumerator burstSpeed()
     {
-        if (!PC.isGrounded) PC.setGravity(0);
+        if (!_playerControls.isGrounded) _playerControls.setGravity(0);
 
         yield return new WaitForEndOfFrame();
 
-        PC.TargetRotation.x = Mathf.Lerp(PC.TargetRotation.x, 0, 9 * Time.deltaTime);
-        PC.TargetRotation.z = Mathf.Lerp(PC.TargetRotation.z, 0, 9 * Time.deltaTime);
+        _playerControls.TargetRotation.x = Mathf.Lerp(_playerControls.TargetRotation.x, 0, 9 * Time.deltaTime);
+        _playerControls.TargetRotation.z = Mathf.Lerp(_playerControls.TargetRotation.z, 0, 9 * Time.deltaTime);
 
-        if(PC.isGrounded == false && bExitedHorizontalPortal == true)
+        if(_playerControls.isGrounded == false && _bExitedHorizontalPortal == true)
         {
-            PC.playerVelocity.y = PC.currentSpeed;
-            PC.CC.Move(PC.playerVelocity * Time.deltaTime);
+            _playerControls.playerVelocity.y = _playerControls.currentSpeed;
+            _playerControls.characterController.Move(_playerControls.playerVelocity * Time.deltaTime);
         }
 
 
-        --burstDuration;
-        if(burstDuration > 0)
+        --_burstDuration;
+        if(_burstDuration > 0)
         {
             StartCoroutine(burstSpeed());
         }
         else
         {
-            bExitedHorizontalPortal = false;
-            PC.resetGravity();
+            _bExitedHorizontalPortal = false;
+            _playerControls.resetGravity();
         }
     }
 
     public void firePortalProj()
     {
-        GameObject proj = Instantiate(portalProj[portalID], spawnTransform.position, spawnTransform.rotation);
-        proj.GetComponent<portalProj>().hit = portalHit;
-        proj.GetComponent<portalProj>().portalID = portalID;
+        GameObject proj = Instantiate(_portalProj[_portalID], _spawnTransform.position, _spawnTransform.rotation);
+        proj.GetComponent<portalProj>().hit = _portalHit;
+        proj.GetComponent<portalProj>().portalID = _portalID;
     }
 
     public void FirePortal(int portalID, float distance)
     {
         RaycastHit hit;
         Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(raycast, out hit, distance, portalLayer);
+        Physics.Raycast(raycast, out hit, distance, _portalLayer);
         Debug.DrawLine(Camera.main.transform.position, hit.point, Color.red);
 
         if (hit.collider != null)
@@ -260,8 +257,8 @@ public class PortalController : MonoBehaviour
             }
 
             //Fire animation
-            portalHit = hit;
-            this.portalID = portalID;
+            _portalHit = hit;
+            this._portalID = portalID;
 
             int randomAnim = Random.Range(1, 4);
             hand_Anim.ResetTrigger("fire" + randomAnim);
@@ -272,7 +269,7 @@ public class PortalController : MonoBehaviour
     public void PlacePortal(RaycastHit hit, int portalID)
     {
         // Orient the portal according to camera look direction and surface direction.
-        var cameraRotation = PC.TargetRotation;
+        var cameraRotation = _playerControls.TargetRotation;
         var portalRight = cameraRotation * Vector3.right;
 
         if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
@@ -291,8 +288,8 @@ public class PortalController : MonoBehaviour
 
 
         // This places the portal and returns a bool if it worked or not
-        bool bPlaced = portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
-
+        bool bPlaced = _portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
+        
         if (!bPlaced)
         {
             //Do a particle for when it fails

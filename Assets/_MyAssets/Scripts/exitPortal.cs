@@ -15,10 +15,8 @@ public class exitPortal : MonoBehaviour
 
             myPortal.bPlayerTele = false;
 
-            myPortal.GetComponent<Portal>().collider1.enabled = true;
-            myPortal.GetComponent<Portal>().collider2.enabled = true;
-            otherPortal.GetComponent<Portal>().collider1.enabled = true;
-            otherPortal.GetComponent<Portal>().collider2.enabled = true;
+            myPortal.GetComponent<Portal>().SetCollisionEnabled(true);
+            otherPortal.GetComponent<Portal>().SetCollisionEnabled(true);
 
             other.GetComponent<PortalController>().ExitPortal();
         }

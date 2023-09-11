@@ -8,16 +8,17 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
-using static UnityEditor.SceneView;
 
 public class PlayerControls : MonoBehaviour
 {
     public PInputActions pInputActions;
-    public CharacterController CC;
-    private PortalController PC;
+    public CharacterController characterController;
+    private PortalController _portalController;
 
     // Player Prefs
     private float playerSens = 4;
+    private int minutesHS;
+    private float secondsHS;
 
     [Header("Movement")]
     public float currentSpeed = 4;
@@ -51,24 +52,41 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] public Transform respawnPoint;
 
+    [SerializeField] private TextMeshProUGUI _timerText;
+    [SerializeField] private TextMeshProUGUI _minutesText;
+    [SerializeField] private TextMeshProUGUI _highScore;
+    private int _minutes;
+    private float _timer;
+
+    private bool bWon;
+    [SerializeField] private GameObject _wonScreen;
+
     private void Awake()
     {
         playerSens = PlayerPrefs.GetFloat("playerSens");
         cameraSpeed = playerSens;
         sensitivitySlider.value = playerSens;
 
+        secondsHS = PlayerPrefs.GetFloat("seconds");
+        minutesHS = PlayerPrefs.GetInt("minutes");
+
         pInputActions = new PInputActions();
         pInputActions.Player.Enable();
-        
-        PC = GetComponent<PortalController>();
 
-        CC = GetComponent<CharacterController>();
+        _portalController = GetComponent<PortalController>();
+
+        characterController = GetComponent<CharacterController>();
+
+
+        _timer = 0;
     }
 
     void Start()
     {
         setSpeed = walkSpeed;
         recoverySpeed = 0.009f;
+
+        _highScore.text = "Highscore: Minutes - " + minutesHS + "  Seconds - " + string.Format("{0:0.00}", secondsHS);
 
         Cursor.lockState = CursorLockMode.Locked;   // Locks the cursor to the center of the screen
         Cursor.visible = false;                     // Hides the cursor
@@ -83,12 +101,50 @@ public class PlayerControls : MonoBehaviour
     {
         if (Time.timeScale == 0) return;
 
-        isGrounded = CC.isGrounded;
+        _timerText.text = string.Format("{0:0.00}", _timer);
 
-        if(transform.position.y < -5 && bHasLost == false)
+        isGrounded = characterController.isGrounded;
+
+        if(bWon && Time.timeScale > 0)
+        {
+            _wonScreen.transform.localPosition = Vector3.Lerp(_wonScreen.transform.localPosition, Vector3.zero, Time.timeScale * 5);
+            Time.timeScale -= 0.01f;
+            if (Time.timeScale > 0.1f && Time.timeScale < 0.2f)
+            {
+                if(_minutes < minutesHS)
+                {
+                    newHighScore();
+                }
+                if(_minutes == minutesHS && _timer < secondsHS)
+                {
+                    newHighScore();
+                }
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            return;
+        }
+
+        _timer += Time.deltaTime;
+        if (_timer > 60)
+        {
+            _timer = 0;
+            ++_minutes;
+            _minutesText.text = "Minutes: " + _minutes;
+        }
+
+        if (transform.position.y < -5 && bHasLost == false)
         {
             Lose();
         }
+    }
+
+    private void newHighScore()
+    {
+        PlayerPrefs.SetFloat("seconds", _timer);
+        PlayerPrefs.SetInt("minutes", _minutes);
+        _highScore.text = "Highscore: Minutes - " + minutesHS + "  Seconds - " + string.Format("{0:0.00}", secondsHS);
     }
 
     private void FixedUpdate()
@@ -106,17 +162,31 @@ public class PlayerControls : MonoBehaviour
     }
     #endregion
 
+    public void runItBack()
+    {
+        SceneManager.LoadScene(2);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        menu.SetActive(false);
+    }
+
+    public void WonGame()
+    {
+        bWon = true;
+    }
+
     public void Movement()
     {
         Vector2 inputVector = pInputActions.Player.Movement.ReadValue<Vector2>();
         Vector3 movementDirection = new Vector3(inputVector.x, 0, inputVector.y);
-        CC.Move(transform.TransformDirection(movementDirection) * currentSpeed * Time.deltaTime);
+        characterController.Move(transform.TransformDirection(movementDirection) * currentSpeed * Time.deltaTime);
 
         playerVelocity.y += gravity * Time.deltaTime;
         if (isGrounded && playerVelocity.y < 0)
             playerVelocity.y = -2f;
 
-        CC.Move(playerVelocity * Time.deltaTime);
+        characterController.Move(playerVelocity * Time.deltaTime);
 
         currentSpeed = Mathf.Lerp(currentSpeed, setSpeed, recoverySpeed);
         currentSpeed = Mathf.Clamp(currentSpeed, crouchSpeed, speedCap); // Sets the min and max speed
@@ -153,21 +223,6 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    public void Sprint(InputAction.CallbackContext context)
-    {
-        /*if (context.started && !bCrouching && currentSpeed < sprintSpeed)
-        {
-            setSpeed = sprintSpeed;
-            bSprinting = true;
-        }
-
-        if (context.canceled)
-        {
-            setSpeed = walkSpeed;
-            bSprinting = false;
-        }*/
-    }
-
     public void PortalLeft(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -178,7 +233,7 @@ public class PlayerControls : MonoBehaviour
             }
             else
             {
-                PC.FirePortal(0, 75.0f);
+                _portalController.FirePortal(0, 75.0f);
             }
         }
     }
@@ -193,28 +248,30 @@ public class PlayerControls : MonoBehaviour
             }
             else
             {
-                PC.FirePortal(1, 75.0f);
+                _portalController.FirePortal(1, 75.0f);
             }
         }
     }
 
     public void Menu(InputAction.CallbackContext context)
     {
+        if (bWon == true) return;
+
         if (context.performed)
         {
             if(menu.activeInHierarchy == true)
             {
                 Time.timeScale = 1;
-                menu.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                menu.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0;
-                menu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                menu.SetActive(true);
             }
         }
     }
@@ -262,18 +319,20 @@ public class PlayerControls : MonoBehaviour
         bloodLoseScreen.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         bloodLoseScreen.transform.Find("terminal").GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 0);
 
+        Destroy(GameObject.FindGameObjectWithTag("ball").GetComponent<GameObject>());
+
         foreach (Transform t in warningSign.transform)
         {
             t.localScale = Vector3.zero;
         }
 
-        CC.enabled = false;
+        characterController.enabled = false;
         transform.position = respawnPoint.position;
         TargetRotation = respawnPoint.rotation;
         yield return new WaitForEndOfFrame();
 
-        CC.Move(respawnPoint.position);
-        CC.enabled = true;
+        characterController.Move(respawnPoint.position);
+        characterController.enabled = true;
     }
 
     public void quitButton()
