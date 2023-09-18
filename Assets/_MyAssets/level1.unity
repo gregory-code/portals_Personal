@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -216,10 +221,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -270,6 +285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -69.888
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -552,6 +572,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Monuntain_Desert_02
       objectReference: {fileID: 0}
+    - target: {fileID: 7389186172822773402, guid: b5af7c31aab1627418db38190efa3109,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7908453987255583776, guid: b5af7c31aab1627418db38190efa3109,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -620,20 +645,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6963856772657323514, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.911594
+      value: -40.152916
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5595608
+      value: 2.641222
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -121.42829
+      value: -137.54314
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
@@ -818,6 +848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Gate_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828404238315967327, guid: a4f5d4b2af55e4e4d8637b2a8848162f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1052,6 +1087,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 477453827}
     m_Modifications:
+    - target: {fileID: 2415347616587354203, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1122,6 +1162,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 4752457369876416285, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850881341963794030, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537582793015064138, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1178,6 +1233,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6217994057041174089, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1201,12 +1261,12 @@ PrefabInstance:
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.969002
+      value: -18.03
       objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -209.58
+      value: -207.63
       objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
@@ -1365,10 +1425,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1405,17 +1480,17 @@ PrefabInstance:
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.214
+      value: -22.21
       objectReference: {fileID: 0}
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.972
+      value: -18.35
       objectReference: {fileID: 0}
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -219.04
+      value: -220.6
       objectReference: {fileID: 0}
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
@@ -1457,6 +1532,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_07
       objectReference: {fileID: 0}
+    - target: {fileID: 4543193846807136707, guid: c57ddcf2e214de54aa3bbd3aaddff512,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1479,32 +1559,32 @@ PrefabInstance:
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7601
+      value: 2.444603
       objectReference: {fileID: 0}
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.7601
+      value: 2.444603
       objectReference: {fileID: 0}
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.7601
+      value: 2.444603
       objectReference: {fileID: 0}
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.164
+      value: -24.03
       objectReference: {fileID: 0}
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.03
+      value: -17.96
       objectReference: {fileID: 0}
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -214.18
+      value: -214.11
       objectReference: {fileID: 0}
     - target: {fileID: 6180224072514976008, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
@@ -1546,10 +1626,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_TagString
+      value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1607,6 +1707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5880809858209599249, guid: 01a60b79a8355b045bc3037a12c9333d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1625,12 +1730,12 @@ PrefabInstance:
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.179
+      value: -30.04
       objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.003
+      value: -18.16
       objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
@@ -1989,6 +2094,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Monuntain_Desert_02
       objectReference: {fileID: 0}
+    - target: {fileID: 7389186172822773402, guid: b5af7c31aab1627418db38190efa3109,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7908453987255583776, guid: b5af7c31aab1627418db38190efa3109,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2078,6 +2188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2132,6 +2247,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2371,6 +2496,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Rock_05
       objectReference: {fileID: 0}
+    - target: {fileID: 5456383978167675690, guid: bbc9270084294ba4da8aa8f702727ef5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2443,6 +2573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2466,6 +2601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
@@ -2522,6 +2662,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2542,17 +2692,17 @@ PrefabInstance:
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.429775
+      value: -34.671097
       objectReference: {fileID: 0}
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8816605
+      value: -2.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -121.22515
+      value: -137.34001
       objectReference: {fileID: 0}
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
@@ -2593,6 +2743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Rock_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5456383978167675690, guid: bbc9270084294ba4da8aa8f702727ef5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2851,10 +3006,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7876,10 +8046,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -7931,6 +8111,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 30.169
       objectReference: {fileID: 0}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7966,17 +8151,17 @@ PrefabInstance:
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.069
+      value: -17.75
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.984001
+      value: -18.67
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -217.56
+      value: -218.53
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
@@ -8017,6 +8202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351011985745345711, guid: a52fb49529438554fb74515043adb565,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8242,7 +8432,6 @@ Transform:
   - {fileID: 1220440570}
   - {fileID: 880065019}
   - {fileID: 59788080}
-  - {fileID: 861489439}
   - {fileID: 1738790420}
   - {fileID: 1590529714}
   - {fileID: 1802678157}
@@ -13441,6 +13630,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6217994057041174089, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13705,6 +13899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13773,10 +13972,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14039,10 +14253,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14318,6 +14547,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14386,6 +14620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3098598038507914954, guid: 3b70de28b59a8004d900479a1b213ab6, type: 3}
     m_RemovedGameObjects: []
@@ -14403,7 +14642,7 @@ PrefabInstance:
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.619774
+      value: -34.05
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
@@ -14413,7 +14652,7 @@ PrefabInstance:
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -164.59514
+      value: -163.68
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
@@ -14455,6 +14694,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3089071785511687746, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_Layer
@@ -14464,6 +14708,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568716679042433796, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14786,6 +15040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Ribs_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7913916399506739940, guid: 1a118ca687daa09499984337aaff31c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14842,6 +15101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14896,6 +15160,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14997,6 +15271,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_07
       objectReference: {fileID: 0}
+    - target: {fileID: 4543193846807136707, guid: c57ddcf2e214de54aa3bbd3aaddff512,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15064,6 +15343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_07 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543193846807136707, guid: c57ddcf2e214de54aa3bbd3aaddff512,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15228,12 +15512,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 729955666}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &861489439 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-    type: 3}
-  m_PrefabInstance: {fileID: 1191714011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &866682722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15297,6 +15575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15320,10 +15603,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -15389,6 +15682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -112.656
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15468,6 +15766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Monuntain_Desert_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6695660723358663943, guid: 9b8e86e3dcb69a04abe7f4eff1461daf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15489,6 +15792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963856772657323514, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
@@ -15633,10 +15941,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -15703,6 +16021,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15759,6 +16082,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6963856772657323514, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -15782,7 +16110,7 @@ PrefabInstance:
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.990002
+      value: -17.97
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
@@ -15852,17 +16180,17 @@ PrefabInstance:
     - target: {fileID: 7486868721043012974, guid: 3b70de28b59a8004d900479a1b213ab6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.068754
+      value: -33.310078
       objectReference: {fileID: 0}
     - target: {fileID: 7486868721043012974, guid: 3b70de28b59a8004d900479a1b213ab6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5185833
+      value: 2.6002445
       objectReference: {fileID: 0}
     - target: {fileID: 7486868721043012974, guid: 3b70de28b59a8004d900479a1b213ab6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -121.07334
+      value: -137.18819
       objectReference: {fileID: 0}
     - target: {fileID: 7486868721043012974, guid: 3b70de28b59a8004d900479a1b213ab6,
         type: 3}
@@ -15903,6 +16231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16078,17 +16411,17 @@ PrefabInstance:
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.265
+      value: -18.11
       objectReference: {fileID: 0}
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.967001
+      value: -18.16
       objectReference: {fileID: 0}
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -214.73
+      value: -214.33
       objectReference: {fileID: 0}
     - target: {fileID: 4680129505705161104, guid: bbc9270084294ba4da8aa8f702727ef5,
         type: 3}
@@ -16129,6 +16462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Rock_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5456383978167675690, guid: bbc9270084294ba4da8aa8f702727ef5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16204,6 +16542,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3098598038507914954, guid: 3b70de28b59a8004d900479a1b213ab6, type: 3}
     m_RemovedGameObjects: []
@@ -16273,10 +16616,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16649,6 +17007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Monuntain_Desert_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6695660723358663943, guid: 9b8e86e3dcb69a04abe7f4eff1461daf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16666,6 +17029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963856772657323514, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
@@ -16685,17 +17053,17 @@ PrefabInstance:
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.533
+      value: -26.67
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.985
+      value: -17.51
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -218.82
+      value: -219.36
       objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
@@ -16844,6 +17212,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6963856772657323514, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16930,12 +17303,12 @@ PrefabInstance:
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.956001
+      value: -18.53
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -208.94
+      value: -207.48
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
@@ -16976,6 +17349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_10 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351011985745345711, guid: a52fb49529438554fb74515043adb565,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17259,6 +17637,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17358,10 +17751,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17406,89 +17814,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1164949195}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1191714011
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 477453827}
-    m_Modifications:
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7601
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7601
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7601
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.985
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -16.958
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -209.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4543193846807136707, guid: c57ddcf2e214de54aa3bbd3aaddff512,
-        type: 3}
-      propertyPath: m_Name
-      value: CrossPlains_Plant_07
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c57ddcf2e214de54aa3bbd3aaddff512, type: 3}
 --- !u!1001 &1210812193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17501,6 +17826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
@@ -17571,6 +17901,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17727,6 +18067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -17786,6 +18131,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17892,6 +18247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Rock_05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5456383978167675690, guid: bbc9270084294ba4da8aa8f702727ef5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18107,6 +18467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18161,6 +18526,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18218,6 +18593,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_03
       objectReference: {fileID: 0}
+    - target: {fileID: 5880809858209599249, guid: 01a60b79a8355b045bc3037a12c9333d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -18236,17 +18616,17 @@ PrefabInstance:
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.482
+      value: -29.66
       objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.01
+      value: -18.02
       objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -218.17
+      value: -218.53
       objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
@@ -18334,6 +18714,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217994057041174089, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
@@ -18688,6 +19073,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Ribs_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7913916399506739940, guid: 1a118ca687daa09499984337aaff31c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18760,6 +19150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Gate_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7828404238315967327, guid: a4f5d4b2af55e4e4d8637b2a8848162f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18793,6 +19188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
@@ -18848,6 +19248,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19025,6 +19435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351011985745345711, guid: a52fb49529438554fb74515043adb565,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19344,6 +19759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_07
       objectReference: {fileID: 0}
+    - target: {fileID: 4543193846807136707, guid: c57ddcf2e214de54aa3bbd3aaddff512,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19523,6 +19943,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6217994057041174089, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19645,10 +20070,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20044,17 +20484,17 @@ PrefabInstance:
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.453
+      value: -18.19
       objectReference: {fileID: 0}
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.956001
+      value: -18.25
       objectReference: {fileID: 0}
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -211.46
+      value: -209.26
       objectReference: {fileID: 0}
     - target: {fileID: 3767113852557087609, guid: c57ddcf2e214de54aa3bbd3aaddff512,
         type: 3}
@@ -20095,6 +20535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_07 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543193846807136707, guid: c57ddcf2e214de54aa3bbd3aaddff512,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20154,10 +20599,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -20214,6 +20669,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 877b173b8a2af8d4c845af604c727b14, type: 2}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20496,10 +20956,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -20550,6 +21020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 76.924
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20775,6 +21250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6963856772657323514, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7777512572000945984, guid: 81d8924183cb4bb4b898ab75aeecb8ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20998,20 +21478,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.91868
+      value: -39.16
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19833946
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -122.105156
+      value: -138.22
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
@@ -21058,6 +21543,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21083,7 +21578,7 @@ PrefabInstance:
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.54699
+      value: -33.04
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
@@ -21093,12 +21588,12 @@ PrefabInstance:
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -175.11
+      value: -175.08
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.72998035
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
@@ -21108,7 +21603,7 @@ PrefabInstance:
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.68346816
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
@@ -21123,7 +21618,7 @@ PrefabInstance:
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 86.231
       objectReference: {fileID: 0}
     - target: {fileID: 2419918167505325304, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
@@ -21135,6 +21630,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_04
       objectReference: {fileID: 0}
+    - target: {fileID: 3089071785511687746, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_Layer
@@ -21144,6 +21644,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568716679042433796, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21283,6 +21793,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21337,6 +21852,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21425,10 +21950,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_04
       objectReference: {fileID: 0}
+    - target: {fileID: 3089071785511687746, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568716679042433796, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21526,6 +22066,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -21595,6 +22140,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21702,10 +22257,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_04
       objectReference: {fileID: 0}
+    - target: {fileID: 3089071785511687746, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568716679042433796, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21779,10 +22349,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21915,10 +22500,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1337602936979128602, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668397346351433436, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
@@ -21968,6 +22563,11 @@ PrefabInstance:
     - target: {fileID: 5441098261372279910, guid: b4a88aee496a96d49aee9abc46419cad,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204645080355659629, guid: b4a88aee496a96d49aee9abc46419cad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22058,6 +22658,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_03
       objectReference: {fileID: 0}
+    - target: {fileID: 5880809858209599249, guid: 01a60b79a8355b045bc3037a12c9333d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22143,6 +22748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880809858209599249, guid: 01a60b79a8355b045bc3037a12c9333d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
@@ -22485,6 +23095,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -22560,6 +23175,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22632,6 +23257,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22700,10 +23330,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_04
       objectReference: {fileID: 0}
+    - target: {fileID: 3089071785511687746, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3270680501063489334, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568716679042433796, guid: cea01bb8ab40eab4f8f42bc74e39e9cf,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22825,6 +23470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Monuntain_Desert_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572526958168421938, guid: 7f3d239f1052c6e4a8131af5983eeb38,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23123,6 +23773,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_03
       objectReference: {fileID: 0}
+    - target: {fileID: 5880809858209599249, guid: 01a60b79a8355b045bc3037a12c9333d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6545706926611797419, guid: 01a60b79a8355b045bc3037a12c9333d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23385,6 +24040,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Plant_11 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7831025019985602516, guid: 3b70de28b59a8004d900479a1b213ab6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3098598038507914954, guid: 3b70de28b59a8004d900479a1b213ab6, type: 3}
     m_RemovedGameObjects: []
@@ -23469,10 +24129,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6813736917224580018, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229529332951213448, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066388076934589682, guid: 3edc0ebb2b5c6e94192f0acd8c90c427,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23523,6 +24198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Floating_Island_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2660589249032858430, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3433888611981062532, guid: d1a5096432363604a9505a029c13058e,
         type: 3}
@@ -23578,6 +24258,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769544149911790983, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015893566204170036, guid: d1a5096432363604a9505a029c13058e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28433,35 +29123,40 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 477453827}
     m_Modifications:
+    - target: {fileID: 2415347616587354203, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.5490658
+      value: 6.937004
       objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5490658
+      value: 6.937004
       objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.5490658
+      value: 6.937004
       objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.552
+      value: -24.21
       objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.702
+      value: -17.48
       objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -214.31
+      value: -214.05
       objectReference: {fileID: 0}
     - target: {fileID: 4659087304275547816, guid: 5ad33d58a66ab154a89c9e88255601e5,
         type: 3}
@@ -28502,6 +29197,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Portal yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752457369876416285, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850881341963794030, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537582793015064138, guid: 5ad33d58a66ab154a89c9e88255601e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28826,17 +29536,17 @@ PrefabInstance:
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.383
+      value: -29.93
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.992
+      value: -18.06
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -211.36
+      value: -209.73
       objectReference: {fileID: 0}
     - target: {fileID: 6010198206433535509, guid: a52fb49529438554fb74515043adb565,
         type: 3}
@@ -28877,6 +29587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6351011985745345711, guid: a52fb49529438554fb74515043adb565,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29051,6 +29766,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CrossPlains_Plant_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217994057041174089, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6701655355973010675, guid: 9fa49baa8ec04224b87fc97cb53be1ae,
         type: 3}
@@ -44529,7 +45249,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &6369632784052056980
 GameObject:

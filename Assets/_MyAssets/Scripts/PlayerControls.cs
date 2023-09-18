@@ -319,7 +319,11 @@ public class PlayerControls : MonoBehaviour
         bloodLoseScreen.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         bloodLoseScreen.transform.Find("terminal").GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 0);
 
-        Destroy(GameObject.FindGameObjectWithTag("ball").GetComponent<GameObject>());
+        GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
+        foreach(GameObject b in balls)
+        {
+            Destroy(b);
+        }
 
         foreach (Transform t in warningSign.transform)
         {

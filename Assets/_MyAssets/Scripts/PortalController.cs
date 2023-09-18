@@ -268,7 +268,6 @@ public class PortalController : MonoBehaviour
 
     public void PlacePortal(RaycastHit hit, int portalID)
     {
-        // Orient the portal according to camera look direction and surface direction.
         var cameraRotation = _playerControls.TargetRotation;
         var portalRight = cameraRotation * Vector3.right;
 
@@ -286,8 +285,6 @@ public class PortalController : MonoBehaviour
 
         var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
 
-
-        // This places the portal and returns a bool if it worked or not
         bool bPlaced = _portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
         
         if (!bPlaced)
